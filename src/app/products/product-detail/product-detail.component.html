@@ -1,0 +1,23 @@
+<div class="container-fluid" *ngIf="event">
+  <div class="row product-detail-container">
+    <div class="col-sm-9">
+      <div class="product-detail-title">
+        <h1>{{event.name}}</h1>
+      </div>
+      <div class="product-detail-image-container text-center">
+        <img src="{{event.image}}" class="product-detail-image">
+      </div>
+    </div>
+    <div class="col-sm-3 product-detail-info-container">
+      <div class="product-detail-info-price">
+        {{event.price | currency}}
+      </div>
+      <div class="product-detail-info-brand">
+        Description: {{event.description}}
+      </div>
+      <div class="product-detail-info-cart-button-container">
+          <button mat-raised-button color="primary" class="btn-block" (click)="addToCart()">ADD TO CART</button>
+      </div>
+    </div>
+  </div>
+</div>

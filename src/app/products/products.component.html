@@ -1,0 +1,20 @@
+<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search">
+<section class="events-list-section">
+  <div class="events-list-container">
+    <a class="events-list-item" *ngFor="let event of events | filter: searchText" [routerLink]="['/products/product-detail', event.id]">
+      <div>
+        <img src="{{event.image}}" width="160" height="160" />
+      </div>
+      <div class="events-list-item-price">
+        {{event.price | currency}}
+      </div>
+      <div class="events-list-item-name products-list-item-text">
+        {{event.name}}
+      </div>
+      <div class="events-list-item-brand products-list-item-text">
+      {{event.description}}
+      {{event.stock}}
+  </div>
+    </a>
+  </div>
+</section>
