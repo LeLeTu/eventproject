@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://localhost:8080'
+  API_URL: 'http://evntmgmt-alb-295694066.us-east-2.elb.amazonaws.com:8080'
 };
 
 /*

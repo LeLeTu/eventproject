@@ -15,7 +15,5 @@ export class ProductsComponent implements OnInit {
     this.es.getEvents().subscribe( (res) => {
       this.events = res;
     });
-    
   }
-
 }

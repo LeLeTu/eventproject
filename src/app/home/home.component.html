@@ -1,1 +1,104 @@
-<p>home works!</p>
+<div class ="header_main_blur_wrapper">
+    <img class="header_main-bg_blur header_main-bg--blurred" src="/assets/unkle-crowd-silhouette-1024x584.png" alt="consumer-header-background">
+  </div>
+  <!-- <div class="container">
+    <span>Site Name</span>
+  <mat-form-field class="searchbox" >
+    
+    <mat-icon matPrefix>search</mat-icon>
+    <input  matInput type="search" [(ngModel)]="value" placeholder="Search events">
+    <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+    <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-button [matMenuTriggerFor]="beforeMenu">Organize</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item>Overview</button>
+      <button mat-menu-item>price</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="beforeMenu">About</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item>About Us</button>
+  <button mat-menu-item>Help Center</button>
+  <button mat-menu-item>Contact Us</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="beforeMenu">Create Event</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="beforeMenu">Sign in</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+  </mat-menu>
+</div>-->
+<div class="header_main-bg-wrapper">
+  <img class="header_main-bg" src ="/assets/unkle-crowd-silhouette-1024x584.png" alt="consumer-header-background">
+  </div>
+
+  
+ <div class="container1">
+    <div class="row">
+        <div class="col-sm">
+           <form [formGroup]="stateForm">
+               <div>I want to go out</div>
+               <!-- <mat-form-field appearance="fill">
+                   <mat-label>Any Date</mat-label>
+                   <mat-select>
+                     <mat-option value="option">Today</mat-option>
+                     <mat-option value="option">Tomorrow</mat-option>
+                     <mat-option value="option">This Weekend</mat-option>
+                     <mat-option value="option">This Month</mat-option>
+                   </mat-select>
+                 </mat-form-field> -->
+                 <mat-form-field>
+                  <mat-label>Choose Date from</mat-label>
+                  <input matInput [matDatepicker]="picker1" [formControl]="date">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+                
+                <mat-form-field>
+                  <mat-label>Choose Date to</mat-label>
+                  <input matInput [matDatepicker]="picker2"
+                         [formControl]="serializedDate">
+                  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+                 
+                 <div>In</div>
+                 
+                 <mat-form-field>
+                   <input type="text"
+                          matInput
+                          placeholder="States Group"
+                          formControlName="stateGroup"
+                          required
+                          [matAutocomplete]="autoGroup">
+                     <mat-autocomplete #autoGroup="matAutocomplete">
+                       <mat-optgroup *ngFor="let group of stateGroupOptions | async" [label]="group.letter">
+                         <mat-option *ngFor="let name of group.names" [value]="name">
+                           {{name}}
+                         </mat-option>
+                     </mat-optgroup>
+                   </mat-autocomplete>
+                 </mat-form-field>
+                 <div>And I am interested in for</div>
+                 <mat-form-field appearance="fill">
+                   <mat-label>Anything</mat-label>
+                   <mat-select>
+                     <mat-option value="option">Music</mat-option>
+                     <mat-option value="option">Sport&Fitness</mat-option>
+                     <mat-option value="option">Health</mat-option>
+                     <mat-option value="option">Holiday</mat-option>
+                   </mat-select>
+                 </mat-form-field>
+                 <button mat-fab color="primary" routerLink="/products">Go!</button>
+           </form>
+        </div>
+    </div>
+</div>
+<app-products></app-products>
+
+

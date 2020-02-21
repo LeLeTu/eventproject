@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 
   err = false;
   registerFormGroup: FormGroup;
-
+  user: User = {name:"", email:"", psw:"", phone:""};
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
@@ -22,7 +22,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerFormGroup = this.fb.group({
-      username: '',
+      name: '',
+      email: '',
+      phone: '',
       passwordGroup: this.fb.group({
         password: '',
         confirm_password: ''
@@ -32,16 +34,14 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (this.registerFormGroup.valid) {
-      const {username, passwordGroup, passwordGroup: {password}} = this.registerFormGroup.value;
-      this.authService.register({username, password})
+      const {name, email, phone, passwordGroup: {password}} = this.registerFormGroup.value;
+      this.user.name = name;
+      this.user.email = email;
+      this.user.phone = phone;
+      this.user.psw = password;
+      this.authService.register(this.user)
         .subscribe(res => {
-          if (res.success) {
-            this.router.navigate(['/users/login']);
-          } else {
-            // show error text.
-          }
-        }, (err) => { // error handling
-          this.err = true;
+          console.log(res);
         });
     } else {
       return false;

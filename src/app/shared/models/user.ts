@@ -1,8 +1,7 @@
-import {UserDetail} from './user-detail';
-
 export class User {
   id?: number;
-  username: string;
-  password: string;
-  userDetail?: UserDetail;
+  name: string;
+  email: string;
+  psw: string;
+  phone: string;
 }

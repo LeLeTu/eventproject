@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../shared/services/auth.service';
 import {Router} from '@angular/router';
 import {User} from '../../shared/models/user';
+import { Validators } from '@angular/forms';
+import { Userlogin } from 'src/app/shared/models/userlogin';
 
 @Component({
   selector: 'app-login',
@@ -11,24 +13,22 @@ import {User} from '../../shared/models/user';
 export class LoginComponent implements OnInit {
 
   err = false;
-  fbSub;
+  userlogin: Userlogin = {email:"", psw:""};
+  
 
   constructor(
     private as: AuthService,
     private router: Router
   ) { }
 
-  ngOnInit() { }
-
+  ngOnInit() {  }
   onSubmit(value) {
-    this.as.login(value as User)
-      .subscribe(res => {
-        if (res.success) {
-          this.router.navigate(['/products']);
-        } else {
-          this.err = true;
-        }
-      });
+    this.userlogin.email = value.username;
+    this.userlogin.psw = value.password;
+    this.as.login(this.userlogin).subscribe(res => {
+      console.log(res);
+  
+    })
   }
 
   onRegister() {

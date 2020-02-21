@@ -3,10 +3,24 @@
     <mat-card-title>Register</mat-card-title>
     <form [formGroup]="registerFormGroup" (ngSubmit)="onSubmit()" fxLayout="column" #registerForm="ngForm">
       <mat-form-field>
-        <mat-placeholder>Username</mat-placeholder>
-        <input type="text" matInput id="username" formControlName="username" required>
-        <mat-error *ngIf="(registerForm.submitted || registerFormGroup.get('username').touched) && registerFormGroup.get('username').invalid">
-          Username can't be empty!
+        <mat-placeholder>Name</mat-placeholder>
+        <input type="text" matInput id="name" formControlName="name" required>
+        <mat-error *ngIf="(registerForm.submitted || registerFormGroup.get('name').touched) && registerFormGroup.get('name').invalid">
+          name can't be empty!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-placeholder>Email</mat-placeholder>
+        <input type="text" matInput id="email" formControlName="email" required>
+        <mat-error *ngIf="(registerForm.submitted || registerFormGroup.get('email').touched) && registerFormGroup.get('email').invalid">
+          email can't be empty!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-placeholder>Phone</mat-placeholder>
+        <input type="text" matInput id="phone" formControlName="phone" required>
+        <mat-error *ngIf="(registerForm.submitted || registerFormGroup.get('phone').touched) && registerFormGroup.get('phone').invalid">
+          phone can't be empty!
         </mat-error>
       </mat-form-field>
       <div fxLayout="column" formGroupName="passwordGroup">
